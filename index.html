@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Website Title</title>
+    <style>
+        .action {
+    display: none; /* Hide the action div by default */
+}
+        .brand-data{
+            align-content: center;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            /* align-items: center; */
+            column-gap: 5px;
+            margin: 10px;
+        }
+        .left-container{
+            border: 1.5px solid #cccccc;
+            border-radius: 5px;
+        }
+        .right-container{
+            border: 1.5px solid #cccccc;
+            border-radius: 5px;
+        }
+        .logo-container{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+        .title{
+            align-self: center;
+        } 
+        .subtitle{
+            margin: 0px;
+        }
+        .logo{
+            margin: 20px;
+        }
+        .profile{
+            margin: 20px;
+            border-radius: 20px;
+        }
+        
+        .logo{
+            font-style: italic;
+            border-radius: 5px;
+        }
+        .ul{
+            padding: 0px;
+        }
+        button{
+            border-radius: 5px;
+            border-width: 1px;
+            border-color: #cccccc;
+            background-color: #ffffff;
+        }
+        .add-btn{
+            width: 40px;
+            border-radius: 5px;
+            border: #000000;
+        }
+        .section{
+            margin: 5px;
+            border: 1px solid rgb(235, 235, 235);
+            border-radius: 5px;
+        }
+        .team-list{ 
+            margin: 0;
+            padding-left: 0;
+        }
+        .team{
+            display: grid;
+            grid-template-columns: 0.5fr 2.5fr 1fr;
+            padding: 10px;
+            border: 1px solid rgb(235, 235, 235);
+        }
+        .team-title{
+            margin: 0;
+        }
+        .team-btn {
+        display: flex;
+        align-items: left;   
+        justify-content: left; 
+        width: 300px;
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        }
+        .team-btn i {
+        margin-right: 5px;
+        }
+        .folders{
+            margin: 5px;
+        }
+        .folder-header, .folder-icon{
+            color:#7a7878;
+            font-weight: 20px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .folder-icon{
+            float: right;
+            align-items: center;
+        }
+        .folder-header-title folder-title-icon{
+            float: left;
+        }
+        .folder-header-title{
+            margin: 5px;
+        }
+        .folder-title {
+            display: inline-block;
+            width: 307px;
+            margin:0;
+            padding: 0;
+        }
+        .folder-title-icon, .folder-add-icon, .folder-title-name{
+            display: inline-block;
+        }
+        .folder-title-icon{
+            padding-left: 10px;
+            color: #000000;
+            font-size: 20px;
+        }
+        .folder-title-name{
+            margin: 0;
+        }
+        .folder-add-icon{
+            float: right;
+        }
+        .add-folder{
+            padding-left: 10px;
+        }
+        .subfolder-title{
+            display: block;
+            padding: 0;
+        }
+        .subfolder-title-name{
+            display: block;
+            padding-left: 40px;
+        }
+        .folder-btn {
+        display: flex;
+        align-items: left;   
+        justify-content: left; 
+        width: 300px;
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        }
+        .folder-btn i {
+        margin-right: 5px;
+        }
+        .hide{
+        display: none;
+        }
+        .subfolder {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+        }
+        .subfolder.show {
+        max-height: 200px; 
+        }
+        .footer{
+            margin-top: 80px;
+        }
+        .teammate{
+            display: inline;
+            margin: 20px 5px;
+        }
+        .help{
+            display: block;
+            margin: 20px 10px;
+        }
+        .help-title{
+            display: inline;
+            margin: 0px 5px;
+            margin-left: 10px;
+        }
+        .billing{
+            display: inline-block;
+            margin: 0px 5px;
+            margin-bottom: 20px;
+        }
+        .billing-title{
+           display: inline;
+            margin: 5px 20px 5px 5px;
+            
+        }
+        .billing-btn{
+            border: #000000;
+            background-color: #000000;
+            color: white;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            align-items: end;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0px;
+            border: 1px solid;
+            border-color: #b9b7b7;
+        }
+        .header-div{
+            
+            margin: 0px 20px;
+        }
+        .header-li-container{
+            margin-right: 10px;
+        }
+        .header-list{
+            display: inline-block;
+            margin: 0px 5px;
+        }
+        .search{
+            width: max-content;
+            display: flex;
+            align-items: center;
+            border-radius: 28px;
+            background-color: #f6f6f6;
+            padding: 5px;
+        }
+        .search-input{
+            font-size: 16px;
+            margin-left: 10px;
+            outline: none;
+            border: 0;
+            background: none;
+            background: transparent;
+        }
+        .search-icon{
+            margin-left: 5px;
+        }
+        .comment-icon, .setting-icon{
+            font-size: 18px;
+        }
+        .brands{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brands-list, .meeting-list{
+            margin: 10px;
+            padding: 0;
+        }
+        .nav-button{
+            display: inline-block;
+            align-content: center;
+            margin: 5px;
+        }
+        .nav-button-list {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f1f1f1;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        .brands-icon, .meeting-icon{
+            font-size: 18px;
+        }
+        .brand-title, .meeting-title{
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        table{
+            border-collapse: collapse;
+            width: 98%;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            table-layout: fixed;
+        }
+        th{
+            border: 1px solid #ddd;
+            padding: 8px; 
+        }
+        th.column1, th.column5, th.column6{
+            width: 130px;
+        }
+        th.column3, th.column4{
+            width: 130px;
+        }
+        th.column2{
+            width: 200px;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 8px; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 0;
+            list-style-type: none;
+            margin: 0;
+            width: 120px;
+        }
+        .desk-dropdown{
+            width: 70px;
+        }
+        .tags-dropdown{
+            width: 70px;
+        }
+        .dropdown-content li {
+            padding: 10px;
+        }
+
+        .dropdown-content li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #7b7b7b;
+        }
+
+        .nav-button-list:hover + .dropdown-content {
+            display: block;
+        }
+
+        .caret{
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid #000000;
+            display: inline-flex;
+            align-items: center;
+        }
+        .action{
+            margin: 5px;
+            margin-left: 200px;
+        }
+        .action-div{
+            border: 1px solid #bdbaba;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin: 10px;
+        }
+        .delete-btn{
+            color: #b11212;
+        }
+        .select-btn, .archive-btn, .delete-btn, .more-btn, .close-btn{
+            padding: 5px;
+            margin: 5px;
+        }
+        .action-btn{
+            display: inline;
+        }
+        .brand img, .brand input[type="checkbox"]  {
+            vertical-align: middle;
+            margin: 3px; /* Align the image vertically to the middle */
+        }
+        .categories, .next-meeting{
+            border: 1px solid;
+            border-radius: 20px;
+            padding: 0px 5px;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 2px;
+        }
+        .tags{
+            border: 1px solid #7b7b7b;
+            border-radius: 20px;
+            padding: 0px 5px;
+            display: inline-flex;
+            align-items: center;
+            color: #000000;
+        }
+        .members img{
+            border-radius: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                display: block;
+            }
+            .logo-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .logo {
+                margin: 20px auto;
+            }
+            .profile {
+                margin: 20px auto;
+            }
+        }
+        </style>
+</head>
+<body>
+    <!-- -------------------- Body Container --------------------------- -->
+    <div class="container">
+
+        <!-- ------------------------ Left Container -------------------------- -->
+        <div class="left-container">
+
+                <!-- ------------------------------- Logo ----------------------------- -->
+                <div class="logo-container">
+                <img class="logo" src="https://media.licdn.com/dms/image/D4D0BAQECaRfBTB_V3Q/company-logo_200_200/0/1699342563817?e=2147483647&v=beta&t=D7H994_wc13Yfb4D-WY3NEie_Ummw89LoRh_k1r9ZYE" alt="" width="30px" height="30px"/>
+                    <div class="title">
+                        <p class="subtitle">INC</p>
+                        <h3 class="subtitle">InnovateHUB</h3>
+                    </div>
+                <img class="profile" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="" width="30px" height="30px"/>
+                </div>
+
+                <!-- ----------------------------------- Team Section --------------------------  -->
+                <div class="section">
+                    <ul class="team-list" id="team-list">
+                        <li class="team">
+                            <i class="uil uil-pen"></i>
+                            <h4 class="team-title">Design Team</h4> 
+                            <button class="add-btn">x+1</button>
+                        </li>
+                        <li class="team">
+                            <i class="uil uil-volume-up"></i>
+                            <h4 class="team-title">Marketing Team</h4> 
+                            <button class="add-btn">x+2</button>
+                        </li>
+                        <li class="team">
+                            <i class="uil uil-arrow"></i>
+                            <h4 class="team-title">Development Team</h4> 
+                            <button class="add-btn">x+3</button>
+                        </li>
+                        <!-- Create a Team button -->
+                        <li class="team">
+                            <button class="team-btn" id="create-team-btn">
+                                <i class="uil uil-plus-circle"></i>
+                                Create a Team
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+
+                <!-- --------------------------- Folders Section  ----------------------------- -->
+                <div class="section">
+                    <div class="folders">
+                        <h4 class="folder-header">FOLDERS</h4>
+                        <i class="uil uil-plus folder-icon"></i>
+                    </div>
+                     <!-- ---------------------- folder 1 ------------------------------ -->
+                    <div class="folder-header-title">
+                        <ul class="folder-title">
+                            <li class="folder-title">
+                                <i class="uil uil-folder folder-title-icon"></i>
+                                <h4 class="folder-title-name">Products</h4>
+                                <i class="uil uil-plus folder-add-icon"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="subfolder">
+                        <ul class="subfolder-title">
+                            <li class="subfolder-title-name">
+                                <h4>Roadmap</h4>
+                            </li>
+                            <li class="subfolder-title-name">
+                                <h4>FeedBack</h4>
+                            </li>
+                            <li class="add-folder">
+                                <button class="folder-btn" id="create-folder-btn">
+                                    <i class="uil uil-plus-circle"></i>
+                                    ADD Sub Folder
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ---------------------- folder 2 ------------------------------ -->
+                    <div class="folder-header-title">
+                        <ul class="folder-title">
+                            <li class="folder-title">
+                                <i class="uil uil-folder folder-title-icon"></i>
+                                <h4 class="folder-title-name">Sales</h4>
+                            </li>
+                        </ul>
+                    </div>
+
+                   <!-- ---------------------- folder 3 ------------------------------ -->
+                    <div class="folder-header-title">
+                        <ul class="folder-title">
+                            <li class="folder-title">
+                                <i class="uil uil-folder folder-title-icon"></i>
+                                <h4 class="folder-title-name">Design</h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- ---------------------- folder 4 ------------------------------ -->
+                    <div class="folder-header-title">
+                        <ul class="folder-title">
+                            <li class="folder-title">
+                                <i class="uil uil-folder folder-title-icon"></i>
+                                <h4 class="folder-title-name">Office</h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- ---------------------- folder 5 ------------------------------ -->
+                    <div class="folder-header-title">
+                        <ul class="folder-title">
+                            <li class="folder-title">
+                                <i class="uil uil-folder folder-title-icon"></i>
+                                <h4 class="folder-title-name">Legal</h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- --------------------------- footer ---------------------------  -->
+                <div class="footer">
+                    <div class="teammate">
+                        <i class="uil uil-user-plus teammate"></i>
+                        <h4 class="teammate">Invite teammates</h4>
+                    </div>
+
+                    <div class="help">
+                        <i class="uil uil-question-circle"></i>
+                        <h4 class="help-title">Help and First Steps</h4>
+                    </div>
+                    
+                    <div class="billing">
+                        <i class="uil uil-6-plus billing"></i>
+                        <h4 class="billing-title">Days left on trail</h4>
+                        <button class="billing-btn">Add Billing</button>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="right-container">
+            <!-- ------------------------------ header ---------------------------- -->
+            <div class="header">
+                <div class="header-div">
+                    <h3 class="product">Products</h3>
+                </div>
+                <ul class="header-li-container">
+                    <li class="header-list">
+                    <form action="">
+                    <div class="search">
+                    <i class="uil uil-search search-icon"></i>
+                    <input class="search-input" type="text" name="search" placeholder="Search...">
+                    </div>
+                    </form>  
+                    </li>
+                    <li class="header-list">
+                    <button>
+                    <i class="uil uil-comments-alt comment-icon"></i>
+                    </button>
+                    </li>
+                    <li class="header-list">
+                    <button>
+                    <i class="uil uil-setting setting-icon"></i>
+                    </button>
+                    </li>
+                </ul>
+                
+            </div>
+
+            <!-- ------------------------------ brands Section ----------------------------  -->
+            <div class="brands">
+                <div class="brands-div">
+                    <ul class="brands-list">
+                        <li class="nav-button brand-btn">
+                            <div class="dropdown">
+                            <button class="nav-button-list">
+                                <i class="uil uil-dice-four brands-icon"></i>
+                                <h4 class="brand-title">All Brands</h4>
+                                <div class="caret"></div>
+                            </button>
+                                <ul id="dropdown-content" class="dropdown-content brand-dropdown">
+                                    <li><a href="#">wfx</a></li>
+                                    <li><a href="#">Shopify</a></li>
+                                    <li><a href="#">MailChimp</a></li>
+                                    <li><a href="#">Paypal</a></li>
+                                    <li><a href="#">Disney</a></li>
+                                    <li><a href="#">Intercom</a></li>
+                                    <li><a href="#">Google</a></li>
+                                    <li><a href="#">Evernote</a></li>
+                                    <li><a href="#">Microsoft</a></li>
+                                    <li><a href="#">Invision</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-button desk-btn">
+                            <div class="dropdown">
+                                <button class="nav-button-list">
+                                    <h4 class="brand-title">Desk</h4>
+                                    <div class="caret"></div>
+                                </button>
+                                    <ul id="dropdown-content" class="dropdown-content desk-dropdown">
+                                        <li><a href="#">Desk 1</a></li>
+                                        <li><a href="#">Desk 2</a></li>
+                                        <li><a href="#">Desk 3</a></li>
+                                        <li><a href="#">Desk 4</a></li>
+                                        <li><a href="#">Desk 5</a></li>
+                                        <li><a href="#">Desk 6</a></li>
+                                        <li><a href="#">Desk 7</a></li>
+                                        <li><a href="#">Desk 8</a></li>
+                                        <li><a href="#">Desk 9</a></li>
+                                        <li><a href="#">Desk 10</a></li>
+                                    </ul>
+                                </div>
+                                </li>
+                        <li class="nav-button tags-btn">
+                            <div class="dropdown">
+                                <button class="nav-button-list">
+                                    <h4 class="brand-title">Tags</h4>
+                                    <div class="caret"></div>
+                                </button>
+                                    <ul id="dropdown-content" class="dropdown-content tags-dropdown">
+                                        <li><a href="#">Tags 1</a></li>
+                                        <li><a href="#">Tags 2</a></li>
+                                        <li><a href="#">Tags 3</a></li>
+                                        <li><a href="#">Tags 4</a></li>
+                                        <li><a href="#">Tags 5</a></li>
+                                        <li><a href="#">Tags 6</a></li>
+                                        <li><a href="#">Tags 7</a></li>
+                                        <li><a href="#">Tags 8</a></li>
+                                        <li><a href="#">Tags 9</a></li>
+                                        <li><a href="#">Tags 10</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-button">
+                                <button class="nav-button-list sort-btn">
+                                    <i class="uil uil-sort-amount-down"></i>
+                                    <h4 class="brand-title">Sort</h4>
+                                </button>
+                            </li>
+                            <li class="nav-button filter-btn">
+                                <button class="nav-button-list">
+                                    <i class="uil uil-filter"></i>
+                                    <h4 class="brand-title">filter</h4>
+                                </button>
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="meeting-div">
+                    <ul class="meeting-list">
+                        <li class="nav-button">
+                            <button class="nav-button-list">
+                                <i class="uil uil-plus-circle"></i>
+                                <h4 class="brand-title">Meeting</h4>
+                            </button>
+                        </li>
+                        <li class="nav-button">
+                            <button class="nav-button-list">
+                                <i class="uil uil-import"></i>
+                                <h4 class="brand-title">Import/Export</h4>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- --------------------------- Table --------------------------- -->
+            <div class="table-section">
+                <div class="table-div">
+                    <table>
+                        <tr>
+                            <th class="column1">Brand</th>
+                            <th class="column2">Description</th>
+                            <th class="column3">Members</th>
+                            <th class="column4">Categories</th>
+                            <th class="column5">Tags</th>
+                            <th class="column6">Next Meeting</th>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/W-circle.svg" alt="" width="20px" height="20px">Wfit</td>
+                            <td class="description">Development A Personalized fitness </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2022/07/15/13/19/landscape-7323161_960_720.jpg" alt="" width="20px" height="20px">
+                                <img src="https://i.vimeocdn.com/video/1387363418-0d811c3f8b70407a8b49ea8ad835072d86c0ff1468baf24cff913d6b7e413e6d-d_640x360.jpg" alt="" width="20px" height="20px">
+                                <img src="https://cdn.pixabay.com/photo/2018/02/02/17/29/nature-3125912_960_720.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2017/10/10/07/48/hills-2836301_640.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Automation</div></td>
+                            <td><div class="tags">#DigitalTransfromation</div></td>
+                            <td><div class="next-meeting"> in 30 minutes </div></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://e1.pngegg.com/pngimages/260/212/png-clipart-macos-app-icons-shopify.png" alt="" width="20px" height="20px">Shopify</td>
+                            <td class="description">Introduced a Cloud Based </td>
+                            <td class="members"><img src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg?w=600&quality=80" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">E Commerce</div><div class="categories">b2b</div></td>
+                            <td><div class="tags">#Online Shopping</div></td>
+                            <td><div class="next-meeting"> Tommorow </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://static-00.iconduck.com/assets.00/mailchimp-icon-2048x2048-7tjwbg42.png" alt="" width="20px" height="20px">MailChimp</td>
+                            <td class="description">Developed a Mobile App </td>
+                            <td class="members"><img src="https://static.vecteezy.com/system/resources/thumbnails/025/284/015/small_2x/close-up-growing-beautiful-forest-in-glass-ball-and-flying-butterflies-in-nature-outdoors-spring-season-concept-generative-ai-photo.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2020/03/03/20/31/boat-4899802_960_720.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">SAAS</div></td>
+                            <td><div class="tags">#Tech Innovation</div></td>
+                            <td><div class="next-meeting"> Tommorow</div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://w7.pngwing.com/pngs/720/939/png-transparent-paypal-computer-icons-logo-paypal-blue-angle-service-thumbnail.png" alt="" width="20px" height="20px">Paypal</td>
+                            <td class="description">This is a Payment App </td>
+                            <td class="members"><img src="https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-simon-berger-1266810.jpg&fm=jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2019/04/18/19/36/nature-4137843_1280.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Market Price</div></td>
+                            <td><div class="tags">#DaySell Online</div></td>
+                            <td><div class="next-meeting"> in 6 hours </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://play-lh.googleusercontent.com/0w46WqA_Ofs5bL-mT-dm40PGfxRfRYhZ2R1OC1FiDbK502mhxAj5-r9_nXNs0SFakRA" alt="" width="20px" height="20px">Disney</td>
+                            <td class="description">Introduce a b2b solution </td>
+                            <td class="members"><img src="https://i.pinimg.com/originals/43/db/46/43db4682a57bbddf864719d9403919eb.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">B2B</div></td>
+                            <td><div class="tags">#Business Partnerships</div></td>
+                            <td><div class="next-meeting"> No Contact </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://cdn.iconscout.com/icon/free/png-256/free-intercom-2296057-1912016.png" alt="" width="20px" height="20px">Intercom</td>
+                            <td class="description">Implement an AI Driven Chatbot </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2022/07/15/13/19/landscape-7323161_960_720.jpg" alt="" width="20px" height="20px"><img src="https://media.istockphoto.com/id/1317323736/photo/a-view-up-into-the-trees-direction-sky.webp?b=1&s=612x612&w=0&k=20&c=8xbZvMyptEaqMW46diKakhVgkPkAzBi5l7J1yveCZFk=" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Technology</div></td>
+                            <td><div class="tags">#SmartFinance</div></td>
+                            <td><div class="next-meeting"> in 1 hour </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://static.vecteezy.com/system/resources/thumbnails/012/871/371/small/google-search-icon-google-product-illustration-free-png.png" alt="" width="20px" height="20px">Google</td>
+                            <td class="description">Offer a Comprehensive CLoud </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_640.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2018/02/02/17/29/nature-3125912_960_720.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Automation</div></td>
+                            <td><div class="tags">#SmartFinance</div></td>
+                            <td><div class="next-meeting"> in 30 minutes </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/evernote-icon.png" alt="" width="20px" height="20px">Evernote</td>
+                            <td class="description">This Could be a Smart </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_640.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2019/12/29/02/50/nature-4726122_1280.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2022/07/15/13/19/landscape-7323161_960_720.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Transportation</div></td>
+                            <td><div class="tags">#Logistic</td>
+                            <td><div class="next-meeting"> Next Month </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://cdn-icons-png.flaticon.com/512/906/906309.png" alt="" width="20px" height="20px">Microsoft</td>
+                            <td class="description">Launch an Advisory Service </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2020/03/03/20/31/boat-4899802_960_720.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2017/04/02/19/23/environment-2196690_960_720.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Publishing</div></td>
+                            <td><div class="tags">#D2CMarketing</div></td>
+                            <td><div class="next-meeting"> No Contact </div></td>
+                        </tr>
+                        <tr>
+                            <td class="brand"><input type="checkbox" id="brandCheckbox"><img src="https://brandslogos.com/wp-content/uploads/images/large/invision-logo.png" alt="" width="20px" height="20px">Invision</td>
+                            <td class="description">The Tool would Analyze </td>
+                            <td class="members"><img src="https://cdn.pixabay.com/photo/2020/03/03/20/31/boat-4899802_960_720.jpg" alt="" width="20px" height="20px"><img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_640.jpg" alt="" width="20px" height="20px"></td>
+                            <td><div class="categories">Web Services</div></td>
+                            <td><div class="tags">#ApiIntegration</div></td>
+                            <td><div class="next-meeting"> Next Month </div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- -------------------------- action ---------------------------  -->
+            <div class="action">
+                <div class="action-div">
+                    <div class="select-btn">
+                     <i class="uil uil-check-circle"></i>
+                     <h4 class="action-btn">Selected</h4>
+                    </div>
+                    <button class="delete-btn">
+                        <i class="uil uil-trash-alt"></i>
+                        <h4 class="action-btn">Delete</h4>
+                    </button>
+                    <button class="archive-btn">
+                        <i class="uil uil-archive"></i>
+                        <h4 class="action-btn">Archive</h4>
+                    </button>
+                    <button class="more-btn">
+                        <h4 class="action-btn">More</h4>
+                        <div class="caret"></div>
+                    </button>
+                    <div class="close-btn">
+                        <i class="uil uil-times"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('create-team-btn').addEventListener('click', createNewTeam);
+        });
+
+        let teamCounter = 4; 
+
+        function createNewTeam() {
+            var teamList = document.getElementById('team-list');
+
+            var newTeam = document.createElement('li');
+            newTeam.className = 'team';
+
+            var teamName = prompt("Enter team name:");
+            if (!teamName) return; 
+
+            var icon = document.createElement('i');
+            icon.className = 'uil uil-pen'; 
+
+            var title = document.createElement('h4');
+            title.className = 'team-title';
+            title.textContent = teamName;
+
+            var addButton = document.createElement('button');
+            addButton.className = 'add-btn';
+            addButton.textContent = 'x+' + teamCounter++;
+
+            newTeam.appendChild(icon);
+            newTeam.appendChild(title);
+            newTeam.appendChild(addButton);
+            
+            var lastTeam = teamList.lastElementChild;
+            teamList.insertBefore(newTeam, lastTeam);
+        }
+        // ------------- Folder ---------
+        document.addEventListener('DOMContentLoaded', function() {
+            const folderAddIcon = document.querySelector('.folder-add-icon');
+            const subfolder = document.querySelector('.subfolder');
+
+            folderAddIcon.addEventListener('click', function() {
+                subfolder.classList.toggle('show');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const folderBtn = document.getElementById('create-folder-btn');
+            const subfolderList = document.querySelector('.subfolder-title');
+
+            folderBtn.addEventListener('click', function() {
+                const subfolderName = prompt("Enter subfolder name:");
+                if (subfolderName) {
+                    addSubfolder(subfolderName);
+                }
+            });
+
+            function addSubfolder(name) {
+                const li = document.createElement('li');
+                li.className = 'subfolder-title-name';
+                const h4 = document.createElement('h4');
+                h4.textContent = name;
+                li.appendChild(h4);
+                subfolderList.insertBefore(li, folderBtn.parentNode);
+            }
+        });
+
+        // --------------- Drop Down ----------------
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.getElementById('dropdown-btn');
+            const dropdownContent = document.getElementById('dropdown-content');
+
+            dropdownBtn.addEventListener('click', function() {
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!dropdownBtn.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+        });
+
+        // ------------------ Check Box ------------- 
+        document.addEventListener('DOMContentLoaded', function() {
+            const brandCheckbox = document.querySelectorAll('.table-div table tr td.brand input[type="checkbox"]');
+            const actionDiv = document.querySelector('.action');
+            const deleteBtn = document.querySelector('.delete-btn');
+            const closeBtn = document.querySelector('.action-div .uil-times');
+
+            function anyCheckboxChecked() {
+                return Array.from(brandCheckboxes).some(checkbox => checkbox.checked);
+            }
+
+            brandCheckbox.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    actionDiv.style.display = 'block';
+                });
+            });
+
+            deleteBtn.addEventListener('click', function() {
+                document.querySelectorAll('.table-div table tr td.brand input[type="checkbox"]:checked').forEach(function(checkbox) {
+                    checkbox.closest('tr').remove();
+                });
+            });
+
+            closeBtn.addEventListener('click', function() {
+                actionDiv.style.display = 'none';
+            });
+        });
+
+
+        // ----------------- Random Color -----------
+        document.addEventListener('DOMContentLoaded', function() {
+        const categories = document.querySelectorAll('.categories');
+        const nextMeetings = document.querySelectorAll('.next-meeting');
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        categories.forEach(function(category) {
+            const color = getRandomColor();
+            category.style.color = color;
+            category.style.border = `1px solid ${color}`;
+        });
+
+        nextMeetings.forEach(function(nextMeeting) {
+            const color = getRandomColor();
+            nextMeeting.style.color = color;
+        });
+    });
+
+</script>
+</body>
+</html>
